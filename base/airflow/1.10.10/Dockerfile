@@ -1,4 +1,4 @@
-FROM apache/airflow:1.10.10
+FROM apache/airflow:1.10.15
 
 LABEL maintainer="fnmsd <fnmsd007@qq.com>"
 

@@ -1,0 +1,44 @@
++import io
+ import pickle
+ import base64
+ from flask import Flask, request
+ 
+ app = Flask(__name__)
++# Define a restricted unpickler locally to limit allowed classes.
++# TODO: Add trusted classes to the whitelist.
++class RestrictedUnpickler(pickle.Unpickler):
++    ALLOWED_CLASSES = {
++        "builtins.dict",
++        "builtins.list",
++        "builtins.set",
++        "builtins.tuple",
++        "builtins.str",
++        "builtins.int",
++        "builtins.float",
++        "builtins.bool"
++    }
+ 
+-@app.route("/")
++    def find_class(self, module, name):
++        full_name = f"{module}.{name}"
++        if full_name in self.ALLOWED_CLASSES:
++            return super().find_class(module, name)
++        raise pickle.UnpicklingError(f"Global '{module}.{name}' is not allowed")
++
++def safe_pickle_loads(s):
++    return RestrictedUnpickler(io.BytesIO(s)).load()
++
++user = base64.b64decode(request.cookies.get('user'))
++user = safe_pickle_loads(user)
+ def index():
+     try:
+         user = base64.b64decode(request.cookies.get('user'))
+         user = pickle.loads(user)
+         username = user["username"]
+     except:
+         username = "Guest"
+ 
+     return "Hello %s" % username
+ 
+ if __name__ == "__main__":
+     app.run()

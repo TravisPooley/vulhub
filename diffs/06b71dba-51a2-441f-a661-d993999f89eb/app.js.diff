@@ -1,0 +1,5 @@
+-window.onload = function() {
++m.innerHTML = DOMPurify.sanitize(location.hash.substr(1));
+     var m = document.getElementById('m');
+     m.innerHTML = location.hash.substr(1);
+ }

@@ -1,4 +1,4 @@
-FROM jetbrains/teamcity-server:2023.11.3
+FROM jetbrains/teamcity-server:2023.11.5
 
 LABEL maintainer="phithon <root@leavesongs.com>"
 

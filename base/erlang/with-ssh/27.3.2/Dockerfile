@@ -1,4 +1,4 @@
-FROM erlang:27.3.2-slim
+FROM erlang:27.3.4-slim
 
 LABEL maintainer="phithon <root@leavesongs.com>"
 

@@ -21,7 +21,7 @@ RUN set -ex \
     && cd /usr/src \
     && mvn clean install -DskipTests
 
-FROM eclipse-temurin:11-jdk
+FROM eclipse-temurin:11.0.31_11-jdk
 
 LABEL maintainer="phithon <root@leavesongs.com>"
 

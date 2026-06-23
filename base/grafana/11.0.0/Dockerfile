@@ -1,4 +1,4 @@
-FROM grafana/grafana:11.0.0-ubuntu
+FROM grafana/grafana:11.6.16-ubuntu
 
 LABEL maintainer="phithon <root@leavesongs.com>"
 

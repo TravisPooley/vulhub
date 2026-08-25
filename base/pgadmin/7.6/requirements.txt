@@ -106,4 +106,4 @@ user-agents==2.2.0
 Werkzeug==2.2.3
 wsproto==1.2.0
 WTForms==3.0.1
-zipp==3.18.1
+zipp==3.19.1

@@ -62,7 +62,7 @@ more-itertools==10.2.0
 msal==1.28.0
 msal-extensions==1.1.0
 msrest==0.7.1
-oauthlib==3.2.2
+oauthlib==4.0.0
 packaging==24.0
 paramiko==3.4.0
 passlib==1.7.4
